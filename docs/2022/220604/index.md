@@ -12,12 +12,12 @@ for文や内包表記などで使えるオブジェクトのこと
 ## イテラブルなオブジェクト
 ```python
 class MyIterable:
-	def __iter__(self):
-		return iter([1,2,3])
+    def __iter__(self):
+        return iter([1,2,3])
 
 
 for value in MyIterable():
-	print(value)
+    print(value)
 ```
 イテラブルなオブジェクトの条件
 - `__iter__()`を実装している
@@ -28,25 +28,25 @@ for value in MyIterable():
 ## イテレータ
 ```python
 class MyIterator:
-	def __init__(self):
-		self.list = [1,2,3]
-		self.index = 0
+    def __init__(self):
+        self.list = [1,2,3]
+        self.index = 0
 
-	def __iter__(self):
-		return self
+    def __iter__(self):
+        return self
 
-	def __next__(self):
-		try:
-			value = self.list[self.index]
-		except IndexError:
-			raise StopIteration
-		else:
-			self.index += 1
-			return value
+    def __next__(self):
+        try:
+            value = self.list[self.index]
+        except IndexError:
+            raise StopIteration
+        else:
+            self.index += 1
+            return value
 
 
 for value in MyIterator():
-	print(value)
+    print(value)
 ```
 イテレータの条件
 - `__iter__()`と`__next__()`を実装している
