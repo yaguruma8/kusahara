@@ -14,7 +14,7 @@
 
 twitterカードのデフォルト
 
-<img src="img/summary-img.png" width="80%">
+![Summary Card](img/summary-img.png)
 
 ```html
 <meta name="twitter:card" content="summary" />
@@ -51,7 +51,7 @@ Summary Card の場合、画像は1:1で表示される。
 
 画像を大きく表示できるカード
 
-<img src="img/summary-large-img.png" width="80%">
+![Summary Card Large](img/summary-large-img.png)
 
 ```html
 <meta name="twitter:card" content="summary_large_image" />
