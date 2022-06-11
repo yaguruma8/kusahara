@@ -1,5 +1,5 @@
 22/6/9
-# Reactで本番用にbuildすると画面が真っ白
+# Reactで本番用にbuildすると画面が真っ白になる場合の修正方法
 
 ## 現象
 
@@ -28,7 +28,8 @@
 ## 対処
 
 ### `create-react-app`を使っている場合
-```json
+
+```js
 //package.json
 {
   "name": "router-tutorial",
