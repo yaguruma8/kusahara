@@ -10,6 +10,6 @@
 
 草を生やす
 
-wwwww
+wwwwww
 
 以上
