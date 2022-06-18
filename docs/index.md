@@ -8,3 +8,4 @@
 - 2022/6/11 : [Twitteカードのmetaタグの設定方法](2022/220611/index.md)
 - 2022/6/13 : [SaaS, PaaS, IssS の違いについて](2022/220613/index.md)
 - 2022/6/16 : [FizzBuzz色々](2022/220616/index.md)
+- 2022/6/18 : [Twitteカードのmetaタグの設定方法(OGP対応)](2022/220618/index.md)
