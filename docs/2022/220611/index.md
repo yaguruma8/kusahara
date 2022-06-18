@@ -132,3 +132,7 @@ Twitterの場合、
 
 
 [【2021年版】OGPの設定方法と最適なOGP画像サイズまとめ](https://www.sungrove.co.jp/ogp-setting)
+
+---
+
+22/6/18 OGP対応版 : [Twitteカードのmetaタグの設定方法(OGP対応)](../220618/index.md)
