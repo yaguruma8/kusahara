@@ -159,3 +159,9 @@
 最初の要素 allcount（存在する数、取得数はlimの上限まで）    
 以後、作品ごとの情報
 
+## 遅延
+
+- マスタースレーブ同期 : 10秒以内
+- 小説のデータ更新 -> なろうAPI反映 : 5分〜最大2時間
+- stop, global_point, fav_novel_cnt, review_cnt, all_point, all_hyoka_cnt : 上記＋15分〜最大2時間
+- allcount出力 : 1000件以上の場合に限り最長で4時間
