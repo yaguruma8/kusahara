@@ -12,6 +12,8 @@
 ## ディレクトリ構成
 ```
 .
+├── .vscode
+│   └── launch.json
 ├── docker
 │   └── php
 │       ├── Dockerfile
@@ -32,11 +34,16 @@ services:
   php:
     build: ./docker/php
     ports:
+      # ホストのポート:ゲストのポート
       - 8080:8000
     volumes:
+      # ホストの作業ディレクトリ: ゲストの作業ディレクトリ
       - ./work:/work
+      # php.iniをホストとゲストでリンク
+      # Dockerfileでコンテナのビルド時にコピーしてもok
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini 
 ```
+ゲスト(dockerコンテナ)側は`8000`を開いて、ホスト(Mac)側の`8080`にポートフォワーディングする。
 
 `docker/php/Dockerfile`
 ```dockerfile
@@ -49,7 +56,8 @@ RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 # 作業ディレクトリ
 WORKDIR /work
-# 開発用サーバの起動（guest:8000 -> host:8080にポートフォワード）
+# 開発用サーバの起動
+# docker-compose.yml で指定したゲスト側のポートで起動する
 CMD ["php", "-S", "0.0.0.0:8000", "-t", "/work/public"]
 ```
 
@@ -100,10 +108,11 @@ expose_php=Off
 
 ### VSCodeの設定
 
-VSCodeのサイドメニューのデバッグの項目で最初は`create a launch.json file`とあるのでそこをクリックしてPHP用の`launch.json`を作成する。
+VSCodeのサイドメニューのデバッグの項目で最初は`create a launch.json file`とあるので、そこからPHP用の`launch.json`を作成する。    
+自動的に`.vscode`ディレクトリおよび`launch.json`が作成されるので必要な設定を追記する。
 
 `.vscode/launch.json`    
-```json
+```js
 {
   // IntelliSense を使用して利用可能な属性を学べます。
   // 既存の属性の説明をホバーして表示します。
