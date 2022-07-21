@@ -13,7 +13,7 @@ try {
     null, // ユーザー名(MySQLなどの場合は指定)
     null, // パスワード(MySQLなどの場合は指定)
     [
-      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,  // PDOException例外をスローできるようにする
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,  // PDOException例外を投げる
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // 結果セットの配列のキーをSQLのカラム名にする
       PDO::ATTR_EMULATE_PREPARES => false,  // エミュレートモードのオフ＝SQLで設定した型で値を受け取る
     ]
@@ -148,7 +148,7 @@ $posts = $stmt->fetch();
 
 ```
 - `bindParam()`
-  - プレースホルダ名 `:id`、値 `$id`、値の型の指定 `PDO::PARAM_INT`
+  - プレースホルダ名 `:id`、変数 `$id`、値の型の指定 `PDO::PARAM_INT`
 - 変数を紐づけ、`execute()`のたびに変数を評価してクエリを実行する
 
 ## LIKEで抽出する場合の注意事項
