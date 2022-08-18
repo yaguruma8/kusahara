@@ -2,16 +2,17 @@
 
 # INNER JOINとforeachループの速度差
 
-1. 小説家になろうのランキングAPIからランキングデータを取得 (ncode, pt, rank)
-2. 一件ずつRankings_sourceテーブルに登録（300位＝300件）
-3. Rankings_sourceテーブルから今までのランクイン回数を数えてデータに追加する
-4. Rankingsテーブルに(ncode, pt, rank, rankin_count)で登録
+1. 小説家になろうのランキングAPIからランキングデータを取得する (ncode, pt, rank)
+2. 一件ずつRankings_sourceテーブルに登録する
+3. Rankings_sourceテーブルから今までのランクイン回数を集計してデータに追加する
+4. Rankingsテーブルに(ncode, pt, rank, rankin_count)で登録する
 
 という流れで   
 
 ## `INNER JOIN` で取得
 ```php
 $pdo = Database::getPdo();
+
 $stmt = $pdo->prepare(
     "SELECT r1.ncode, r1.pt, r1.rank, r2.rankin_count
     FROM Rankings_source AS r1
@@ -39,6 +40,8 @@ var_dump($fetchedData);
 
 ## 該当データを抜き出してncode毎にループを回してカウントデータを追加
 ```php
+$pdo = Database::getPdo();
+
 $stmt = $pdo->prepare(
     "SELECT ncode, pt, rank
     FROM Rankings_source
