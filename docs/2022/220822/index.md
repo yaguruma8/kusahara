@@ -15,15 +15,15 @@
 
 `YZ`の部分を数値に変換して`xxxx`と足し合わせる。
 
-a=0, b=1, c=2 ... z=25 に文字から数字に変換して
+a=0, b=1, c=2 ... z=25 に文字から数値に変換して
 
-`Y` : 9999 * 26 ** (2 - 1) * 文字から変換した数字
+`Y` : 9999 * 26 ** (2 - 1) * 文字から変換した数値
 
-`Z` : 9999 * 26 ** (1 - 1) * 文字から変換した数字
+`Z` : 9999 * 26 ** (1 - 1) * 文字から変換した数値
 
 ## JavaScriptでの実装
 ```javascript
-function ncodeToNum(ncode) {
+function ncodeToNnum(ncode) {
   // ncodeを分解する。NxxxxYZ -> N + xxxx + Y + Z
   const X = Number(ncode.slice(1, 5));
   const Y = ncode.slice(5, 6).toLowerCase();
