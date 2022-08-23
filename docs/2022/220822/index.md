@@ -42,7 +42,7 @@ function ncodeToNnum(ncode) {
 ## JavaScriptでもうちょっと汎用的にした版(8/23)
 エラー処理もつけた。無効な引数ならTypeError投げる
 ```javascript
-function ncodeToNum(ncode) {
+function ncodeToNnum(ncode) {
   if (!/^[Nn]\d{4}[A-Za-z]{1,3}$/.test(ncode)) {
     throw new TypeError('This argument is not a valid');
   }
